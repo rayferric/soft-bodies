@@ -179,9 +179,9 @@ vec2<T> &vec2<T>::operator/=(U rhs) {
 
 // Scalar + Vector
 
-template<scalar L, scalar R, scalar Ret = std::common_type_t<L, R>>
-vec2<Ret> operator*(L lhs, const vec2<R> &rhs) {
-	return vec2<Ret>(lhs * rhs.x, lhs * rhs.y);
+template<scalar L, scalar R>
+vec2<std::common_type_t<L, R>> operator*(L lhs, const vec2<R> &rhs) {
+	return vec2<std::common_type_t<L, R>>(lhs * rhs.x, lhs * rhs.y);
 }
 
 #pragma endregion

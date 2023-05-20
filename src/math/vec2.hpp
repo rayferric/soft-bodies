@@ -104,8 +104,8 @@ public:
 
 	// Scalar + Vector
 
-	template<scalar L, scalar R, scalar Ret>
-	friend vec2<Ret> operator*(L lhs, const vec2<R> &rhs);
+	template<scalar L, scalar R>
+	friend vec2<std::common_type_t<L, R>> operator*(L lhs, const vec2<R> &rhs);
 
 #pragma endregion
 

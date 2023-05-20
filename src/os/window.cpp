@@ -45,8 +45,8 @@ window::window(std::string &&title, uvec2 size) {
 	windowed_size = glfw_size;
 	frame_size    = glfw_frame_size;
 
-	if (monitor != nullptr) {
-		set_pos((monitor->resolution() - size) / 2);
+	if (_monitor != nullptr) {
+		set_pos((_monitor->resolution() - size) / 2);
 	}
 }
 
@@ -143,7 +143,7 @@ bool window::is_fullscreen() const {
 }
 
 void window::set_fullscreen(bool fullscreen) {
-	if (this->fullscreen == fullscreen || monitor == nullptr) {
+	if (this->fullscreen == fullscreen || _monitor == nullptr) {
 		return;
 	}
 	this->fullscreen = fullscreen;
@@ -153,10 +153,10 @@ void window::set_fullscreen(bool fullscreen) {
 		maximized = minimized = false;
 		apply_mode();
 
-		uvec2 size = monitor->resolution();
+		uvec2 size = _monitor->resolution();
 		glfwSetWindowMonitor(
 		    _glfw_window,
-		    monitor->_glfw_monitor,
+		    _monitor->_glfw_monitor,
 		    0,
 		    0,
 		    size.x,
@@ -178,11 +178,11 @@ void window::set_fullscreen(bool fullscreen) {
 }
 
 std::shared_ptr<monitor> window::get_monitor() {
-	return monitor;
+	return _monitor;
 }
 
 void window::set_monitor(std::shared_ptr<os::monitor> monitor) {
-	this->monitor = std::move(monitor);
+	this->_monitor = std::move(monitor);
 
 	if (fullscreen) {
 		set_fullscreen(false);

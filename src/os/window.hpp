@@ -71,7 +71,7 @@ protected:
 	// Maximized and minimized trackers are required, because
 	// GLFW gives wrong answer once the window goes fullscreen 
 	bool maximized = false, minimized = false, fullscreen = false;
-	std::shared_ptr<monitor> monitor = monitor::primary();
+	std::shared_ptr<monitor> _monitor = monitor::primary();
 	math::uvec2 frame_size;
 	bool surface_constructed = false;
 
