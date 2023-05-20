@@ -1,20 +1,19 @@
 # Soft Bodies
 
-🏀 real-time soft body simulation sandbox
+🏀 Real-time soft body simulation sandbox.
 
 ## Features
 
-- basic joint and spring physics integration
-- rectangle-joint collisions
-- basic OpenGL 3.3 renderer
-- Dear ImGui integration
+- Basic joint and spring physics integration.
+- Rectangle-joint collisions.
+- Basic OpenGL 3.3 renderer.
+- Dear ImGui integration.
 
 ## Gallery
 
+https://github.com/rayferric/soft-bodies/assets/63957587/2b22cf53-9e2a-48cb-9713-e47bbd9da866
+
 <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
-    <video style="width: 400px; margin: 20px;" controls>
-        <source src="./docs/soft-body.mp4" type="video/mp4" />
-    </video>
     <img style="width: 400px; margin: 20px;" src="./docs/vehicle.gif" />
 </div>
 
