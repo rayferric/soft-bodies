@@ -1,0 +1,9 @@
+{
+	"dependencies": {},
+	"description": "A date and time library based on the C++11/14/17 <chrono> header.",
+	"git": "https://github.com/voltengine/date.git",
+	"id": "voltengine/date",
+	"keywords": [],
+	"license": "MIT",
+	"version": "3.0.1"
+}

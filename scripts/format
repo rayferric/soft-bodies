@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import os
+
+print("\nInvoking Clang-Format...")
+# TODO: Use Python functionality instead of Bash in order to make the script cross-platform.
+cmd = (
+    # Find all files.
+    "find . -type f"
+    # Ignore build directory.
+    " | grep -v 'build\|lib\|scripts\|vscode'"
+    # Pick C++ sources.
+    " | grep '\.h$\|\.cpp$'"
+    # For each source file...
+    " | xargs -I {} sh -c '"
+    # Save the current time.
+    "START=$(date +%s%3N) && "
+    # Print the file name.
+    'printf "$1 " && '
+    # Run Clang-Format.
+    "clang-format -i $1 && END=$(date +%s%3N) && "
+    # Print the duration.
+    'echo "$(expr $END - $START) ms"'
+    "' -- {}"
+)
+print(f"$ {cmd}")
+os.system(cmd)
