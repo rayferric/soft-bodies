@@ -154,6 +154,10 @@ vec2<Ret> reflect(const vec2<Incident> &incident,
 template<scalar X>
 vec2<X> abs(const vec2<X> &x);
 
+template<scalar X, scalar Min, scalar Max,
+		scalar Ret = std::common_type_t<X, Min, Max>>
+inline vec2<Ret> clamp(const vec2<X> &x, const vec2<Min> &min, const vec2<Max> &max);
+
 template<floating_point X>
 vec2<X> fract(const vec2<X> &x);
 

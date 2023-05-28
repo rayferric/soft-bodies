@@ -239,6 +239,13 @@ vec2<X> abs(const vec2<X> &x) {
 	return vec2<X>(abs(x.x), abs(x.y));
 }
 
+template<scalar X, scalar Min, scalar Max, scalar Ret>
+inline vec2<Ret> clamp(const vec2<X> &x, const vec2<Min> &min, const vec2<Max> &max) {
+	return vec2<Ret>(
+			clamp(x.x, min.x, max.x),
+			clamp(x.y, min.y, max.y));
+}
+
 template<floating_point X>
 vec2<X> fract(const vec2<X> &x) {
 	return vec2<X>(fract(x.x), fract(x.y));

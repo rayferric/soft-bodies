@@ -55,6 +55,8 @@ void world::update(float delta) {
 		core::joint &joint = *joint_ptr;
 
 		joint.velocity += joint.force * (delta / joint.mass);
+		if (math::length(joint.velocity) > 10.0F)
+			joint.velocity = math::normalize(joint.velocity) * 10.0F;
 		joint.position += joint.velocity * delta;
 	}
 
